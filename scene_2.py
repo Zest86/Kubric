@@ -209,7 +209,7 @@ for set_index in range(num_sets):
         # initialize velocity randomly but biased towards center
         obj.velocity = (rng.uniform(*VELOCITY_RANGE) - [obj.position[0], obj.position[1], 0])
         # 设置物体的初始朝向
-        set_object_upright(obj, renderer)
+        # set_object_upright(obj, renderer)
         logging.info("    Added %s at %s", obj.asset_id, obj.position)
         existing_objects.append(properties)  # 存储已生成物体的属性
         generated_objects.append(obj)  # 添加物体到列表
