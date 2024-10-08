@@ -10,7 +10,7 @@ import pdb
 
 # --- Some configuration values
 # 物体初始位置范围（x,y,z)
-SPAWN_REGION = [(-7, -7, 3), (7, 7, 3)]
+SPAWN_REGION = [(-7, -7, 5), (7, 7, 5)]
 # 物体初始速度范围（x,y,z)
 VELOCITY_RANGE = [(0., 0., -1), (0., 0., -1)]
 COULOMB_CONSTANT = 8.987551e9  # 库仑常数
