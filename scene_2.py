@@ -15,7 +15,7 @@ SPAWN_REGION = [(-7, -7, 3), (7, 7, 3)]
 VELOCITY_RANGE = [(0., 0., -1), (0., 0., -1)]
 COULOMB_CONSTANT = 8.987551e9  # 库仑常数
 # omit sphere here, for sphere does not have 3D rotation
-CLEVR_OBJECTS = ("cube", "cylinder", "sphere")
+CLEVR_OBJECTS = ("cube", "cylinder")
 KUBASIC_OBJECTS = ("cube", "cylinder", "sphere", "cone", "torus", "gear",
                    "torus_knot", "sponge", "spot", "teapot", "suzanne")
 # --- CLI arguments
