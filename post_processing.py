@@ -17,7 +17,7 @@ import numpy as np
 from typing import Sequence
 from kubric import core
 from kubric.kubric_typing import ArrayLike
-from pycocotools import mask as mask_util
+# from pycocotools import mask as mask_util
 
 
 def compute_visibility(segmentation: np.ndarray, assets: Sequence[core.Asset]):
@@ -60,7 +60,7 @@ def compute_bboxes(segmentation: ArrayLike, asset_list: Sequence[core.Asset]):
     asset.metadata["bbox_frames"] = []
     asset.metadata["mask"] = []
     for t in range(segmentation.shape[0]):
-      pdb.set_trace()
+      # pdb.set_trace()
       seg = segmentation[t, ..., 0]
       idxs = np.array(np.where(seg == k), dtype=np.float32)
       idxs_int = np.array(np.where(seg == k), dtype=np.int32)
