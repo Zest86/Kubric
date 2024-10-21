@@ -30,7 +30,7 @@ parser.add_argument("--floor_restitution", type=float, default=0.5)
 parser.add_argument("--camera", choices=["fixed_random", "linear_movement"], default="fixed_random")
 parser.add_argument("--max_camera_movement", type=float, default=4.0)
 parser.add_argument("--save_state", dest="save_state", action="store_false")
-parser.set_defaults(save_state=True, frame_end=10, frame_rate=30, resolution=240)
+parser.set_defaults(save_state=True, frame_end=4, frame_rate=30, resolution=240)
 # Configuration for the source of the assets
 parser.add_argument("--kubasic_assets", type=str,
                     default="gs://kubric-public/assets/KuBasic/KuBasic.json")
@@ -40,7 +40,7 @@ parser.add_argument("--gso_assets", type=str,
                     default="gs://kubric-public/assets/GSO/GSO.json")
 
 FLAGS = parser.parse_args()
-num_sets = 3  # 要生成的视频组数
+num_sets = 1  # 要生成的视频组数
 
 
 def compute_electromagnetic_force(obj1, obj2):
@@ -153,7 +153,7 @@ for set_index in range(num_sets):
         # 尝试生成不重叠的位置
         positioned = False
         attempts = 0
-        max_attempts = 10  # 限制尝试次数以避免无限循环
+        max_attempts = 20  # 限制尝试次数以避免无限循环
 
         while not positioned and attempts < max_attempts:
             obj_size = properties["size"]
@@ -259,6 +259,7 @@ for set_index in range(num_sets):
     animation = {}
     collisions = []
     print()
+    # pdb.set_trace()
     with open(full_path, 'w') as file:
 
         for frame_index in range(FLAGS.frame_end):
@@ -319,6 +320,7 @@ for set_index in range(num_sets):
     scene.metadata["num_instances"] = len(visible_foreground_assets)
 
     kb.write_image_dict(data_stack, output_subdir)
+
     kb.post_processing.compute_bboxes(data_stack["segmentation"], visible_foreground_assets)
 
     # --- Metadata
