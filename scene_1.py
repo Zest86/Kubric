@@ -30,7 +30,7 @@ parser.add_argument("--floor_restitution", type=float, default=0.5)
 parser.add_argument("--camera", choices=["fixed_random", "linear_movement"], default="fixed_random")
 parser.add_argument("--max_camera_movement", type=float, default=4.0)
 parser.add_argument("--save_state", dest="save_state", action="store_false")
-parser.set_defaults(save_state=True, frame_end=4, frame_rate=30, resolution=240)
+parser.set_defaults(save_state=True, frame_end=120, frame_rate=30, resolution=240)
 # Configuration for the source of the assets
 parser.add_argument("--kubasic_assets", type=str,
                     default="gs://kubric-public/assets/KuBasic/KuBasic.json")
@@ -40,7 +40,7 @@ parser.add_argument("--gso_assets", type=str,
                     default="gs://kubric-public/assets/GSO/GSO.json")
 
 FLAGS = parser.parse_args()
-num_sets = 1  # 要生成的视频组数
+num_sets = 50  # 要生成的视频组数
 
 
 def compute_electromagnetic_force(obj1, obj2):
