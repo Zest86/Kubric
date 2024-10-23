@@ -40,7 +40,7 @@ parser.add_argument("--gso_assets", type=str,
                     default="gs://kubric-public/assets/GSO/GSO.json")
 
 FLAGS = parser.parse_args()
-num_sets = 50  # 要生成的视频组数
+num_sets = 500  # 要生成的视频组数
 
 
 def compute_electromagnetic_force(obj1, obj2):
@@ -201,6 +201,8 @@ for set_index in range(num_sets):
             "material": properties["material_name"].lower(),
             "color": properties["random_color"].rgb,
             "color_label": properties["color_label"],
+            "mass": obj.mass,
+            "charge": obj.charge,
         }
         scene.add(obj)
         kb.move_until_no_overlap(obj, simulator, spawn_region=SPAWN_REGION, rng=rng)
